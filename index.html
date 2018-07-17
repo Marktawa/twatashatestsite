@@ -7,8 +7,8 @@
 <!--[if IE 9 ]>        <html dir="ltr" lang="en-US" class="no-js ie9 oldie"> <![endif]-->
 <head>
   <title>Twatasha Disabled and OVC's Organisation</title>
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />	
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />	
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	
@@ -307,7 +307,57 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 		});
 
 </script>
+	
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB0SnQAaVp9kHxQ0l9iU17ELCw2I5D1PZk",
+    authDomain: "pillar-210013.firebaseapp.com",
+    databaseURL: "https://pillar-210013.firebaseio.com",
+    projectId: "secure-pillar-210013",
+    storageBucket: "secure-pillar-210013.appspot.com",
+    messagingSenderId: "538963335746"
+  };
+	
+  // Initialize your Firebase app
+  firebase.initializeApp(config);
+	
+  // Reference to the recommendations object in your Firebase database
+  var contact = firebase.database().ref("contact");
+	
+  // Save a new recommendation to the database, using the input in the form
+  var submitContact = function () {
+	  
+	  //Get input values from each of the form elements
+	  var name = $("#name").val();
+	  var email = $("#email").val();
+	  var comments= $("#comments").val()
+	  
+	  // Push a new recommendation to the database using those values
+	  contact.push({
+		  "name": name,
+		  "email": email,
+		  "comments": comments
+	  });
+  };
+	
+// When the window is fully loaded, call this function.
+// Note: because we are attaching an event listener to a particular HTML element
+// in this function, we can't do that until the HTML element in question has
+// been loaded. Otherwise, we're attaching our listener to nothing, and no code
+// will run when the submit button is clicked.
+$(window).load(function () {
 
+  // Find the HTML element with the id recommendationForm, and when the submit
+  // event is triggered on that element, call submitRecommendation.
+  $("#contact").submit(submitRecommendation);
+
+});
+	
+	
+</script>
+	
 <footer class="container-fluid text-center">
 	<div>
   		Twatasha Disabled and OVC's Organisation. 2012 &#169;
