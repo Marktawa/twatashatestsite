@@ -327,7 +327,7 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
   firebase.initializeApp(config);
 	
   // Reference to the recommendations object in your Firebase database
-  var contact = firebase.database().ref("contact");
+  var contacts = firebase.database().ref("contacts");
 	
   // Save a new recommendation to the database, using the input in the form
   var submitContact = function () {
@@ -354,7 +354,7 @@ $(window).load(function () {
 
   // Find the HTML element with the id recommendationForm, and when the submit
   // event is triggered on that element, call submitRecommendation.
-  $("#contact").submit(submitContact);
+  $("#contactForm").submit(submitContact);
 
 });
 	
