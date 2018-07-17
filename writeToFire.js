@@ -13,14 +13,14 @@ var contacts = firebase.database().ref("contacts");
 
 var submitContact = function () {
 		
-	var namett = $("#name").val();
-	var emailtt = $("#email").val();
-	var commentstt = $("#comments").val();
+	var name = $("#name").val();
+	var email = $("#email").val();
+	var comments = $("#comments").val();
 	
 	contacts.push({
-		"name": namett,
-		"email": emailtt,
-		"comments": commentstt
+		"name": name,
+		"email": email,
+		"comments": comments
 	});
 };
 
